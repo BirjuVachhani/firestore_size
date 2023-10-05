@@ -1,0 +1,26 @@
+name: firestore_size
+description: A tiny package to calculate the approximate size (in bytes) of a Firestore document.
+
+repository: https://github.com/BirjuVachhani/firestore_size
+homepage: https://github.com/BirjuVachhani/firestore_size
+issue_tracker: https://github.com/BirjuVachhani/firestore_size/issues
+
+version: 1.0.0
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cloud_firestore: ">=4.0.0 <5.0.0"
+  intl: ">=0.18.0 <0.19.0"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lints: ^2.1.1
+  fake_cloud_firestore: ^2.4.1+1
+
+scripts: scripts.yaml
