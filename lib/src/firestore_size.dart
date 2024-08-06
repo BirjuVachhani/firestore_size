@@ -47,9 +47,9 @@ final class FirestoreSize {
         DocumentSnapshot doc when doc.exists =>
           sizeOfDoc(doc.data(), path: doc.reference.path),
         QuerySnapshot snapshot =>
-          snapshot.docs.fold(0, (sum, doc) => sum + sizeOf(doc)),
+          snapshot.docs.fold(0, (int sum, doc) => sum + sizeOf(doc)),
         DocumentReference(:String path) => documentNameSize(path),
-        List items => items.fold(0, (sum, item) => sum + sizeOf(item)),
+        List items => items.fold(0, (int sum, item) => sum + sizeOf(item)),
         Map map => _sizeOfMap(map),
         _ => throw ArgumentError('Unsupported type: ${value.runtimeType}'),
       };
@@ -117,7 +117,8 @@ final class FirestoreSize {
   /// Returned integer represents the size in bytes.
   static int documentNameSize(String path) {
     if (path.isEmpty) return 0;
-    return path.split('/').fold(0, (sum, item) => sum + _stringSize(item)) + 16;
+    return path.split('/').fold(0, (int sum, item) => sum + _stringSize(item)) +
+        16;
   }
 
   static int _sizeOfMap(Map? map) {
