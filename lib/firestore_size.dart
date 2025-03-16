@@ -1,3 +1,3 @@
-library firestore_size;
+library;
 
 export 'src/firestore_size.dart';
