@@ -1,3 +1,8 @@
+## 1.1.1
+
+- Upgrade dependencies.
+- Add an example to demonstrate the usage of the package.
+
 ## 1.1.0
 
 - Upgrade `intl` dependency constraints.
