@@ -2,12 +2,11 @@
 
 [![Build](https://github.com/BirjuVachhani/firestore_size/workflows/Build/badge.svg?branch=main)](https://github.com/BirjuVachhani/firestore_size/actions) [![Tests](https://github.com/BirjuVachhani/firestore_size/workflows/Tests/badge.svg?branch=main)](https://github.com/BirjuVachhani/firestore_size/actions) [![codecov](https://codecov.io/gh/birjuvachhani/firestore_size/branch/main/graph/badge.svg?token=ZTYF9UQJID)](https://codecov.io/gh/birjuvachhani/firestore_size) [![Pub Version](https://img.shields.io/pub/v/firestore_size?label=Pub)](https://pub.dev/packages/firestore_size)
 
-A tiny package to calculate the approximate size (in bytes) of a Firestore document. An improved Dart implementation of 
+A tiny package to calculate the approximate size (in bytes) of a Firestore document. An improved Dart implementation of
 [firestore-size](https://www.npmjs.com/package/firestore-size) NPM package.
 
-> This package strictly follows [Storage Size reference guide](https://cloud.google.com/firestore/docs/storage-size) by 
+> This package strictly follows [Storage Size reference guide](https://cloud.google.com/firestore/docs/storage-size) by
 > [Google Cloud](https://cloud.google.com) to calculate the size of a document.
-
 
 ## Installation
 
