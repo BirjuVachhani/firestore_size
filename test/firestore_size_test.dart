@@ -1,6 +1,5 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firestore_size/firestore_size.dart';
-import 'package:firestore_size/src/extensions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
