@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -131,21 +132,12 @@ final class FirestoreSize {
     return bytes;
   }
 
-  /// get bytes in string
-  /// https://stackoverflow.com/a/23329386/591487
-  static int _byteLength(String value) {
-    // returns the byte length of an utf8 string
-    int length = value.length;
-    for (var index = value.length - 1; index >= 0; index--) {
-      final code = value.codeUnitAt(index);
-      length += switch (code) {
-        > 0x7f && <= 0x7ff => 1,
-        > 0x7ff && <= 0xffff => 2,
-        _ => 0,
-      };
-    }
-    return length;
-  }
+  /// Calculate the byte length of a UTF-8 encoded string.
+  ///
+  /// Returns the number of bytes when the string is encoded in UTF-8.
+  /// This correctly handles all Unicode characters including emojis and
+  /// characters outside the Basic Multilingual Plane.
+  static int _byteLength(String value) => utf8.encode(value).length;
 
   /// Calculate the size of a string stored in firestore.
   /// String sizes are calculated as the number of UTF-8 encoded bytes + 1.
