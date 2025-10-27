@@ -1,3 +1,10 @@
+## 1.2.0
+
+- Fix UTF-8 byte calculation bug for emojis and Unicode chars.
+- Improve `prettySize()` implementation.
+- Upgrade dependencies.
+- Expose extensions for easy usage.
+
 ## 1.1.1
 
 - Upgrade dependencies.
