@@ -9,9 +9,9 @@ extension DocumentSnapshotExt on DocumentSnapshot {
   int sizeInBytes() => FirestoreSize.sizeOfDoc(this);
 }
 
-/// Extension methods for [DocumentSnapshot].
+/// Extension methods for [QuerySnapshot].
 extension QuerySnapshotExt on QuerySnapshot {
-  /// Calculate the size of this document snapshot.
+  /// Calculate the size of this query snapshot.
   int sizeInBytes() => FirestoreSize.sizeOf(this);
 }
 
@@ -22,25 +22,32 @@ extension SizeExt on int {
 
   /// Returns size in MB.
   double get inMB => this / 1024 / 1024;
+
+  /// Returns size in GB.
+  double get inGB => this / 1024 / 1024 / 1024;
+
+  /// Returns size in TB.
+  double get inTB => this / 1024 / 1024 / 1024 / 1024;
 }
 
 /// Helper extensions to stringify sizes in human readable format.
 extension PrettySizeExt on num {
   /// Returns a human readable string representation of the bytes size.
   String prettySize() {
-    final String unit = switch (this) {
-      < 1024 => 'bytes',
-      < 1024 * 1024 => 'KB',
-      _ => 'MB',
+    const int kb = 1024;
+    const int mb = kb * 1024;
+    const int gb = mb * 1024;
+    const int tb = gb * 1024;
+
+    final (double value, String unit) = switch (this) {
+      < kb => (toDouble(), 'bytes'),
+      < mb => (this / kb, 'KB'),
+      < gb => (this / mb, 'MB'),
+      < tb => (this / gb, 'GB'),
+      _ => (this / tb, 'TB'),
     };
 
-    final valueInUnit = switch (this) {
-      < 1024 => this,
-      < 1024 * 1024 => this / 1024,
-      _ => this / 1024 / 1024,
-    };
-
-    return '${_numberFormat.format(valueInUnit)} $unit';
+    return '${_numberFormat.format(value)} $unit';
   }
 }
 
